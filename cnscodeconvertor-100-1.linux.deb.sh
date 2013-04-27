@@ -9,10 +9,11 @@
 #	mkdir -p /usr/lib/jvm/default-java/jre/lib/fonts/fallback
 # 	ln -s /usr/share/fonts/truetype/cns11643/* /usr/lib/jvm/default-java/jre/lib/fonts/fallback
 
-# for 64bit
-#sudo apt-get install -y libgtk2.0-0:i386 # libqtcore4:i386 libqtgui4:i386
-sudo apt-get install -y libgtk2.0-0 # libqtcore4 libqtgui4
-
+if [ 'x86_64' = `uname -i` ] ; then
+    sudo apt-get install -y libgtk2.0-0:i386 # libqtcore4:i386 libqtgui4:i386
+else
+    sudo apt-get install -y libgtk2.0-0 # libqtcore4 libqtgui4
+fi
 echo Extracting cnscodeconvertor_99-2_all.deb ...
 base64 -i -d > cnscodeconvertor_99-2_all.deb << SHAR_EOF
 ITxhcmNoPgpkZWJpYW4tYmluYXJ5ICAgMTM2NzA2NDU4NyAgMCAgICAgMCAgICAg
